@@ -205,3 +205,70 @@ src/
 ├── App.jsx
 ├── main.jsx
 └── index.css
+
+## 🧱 Backend Folder Structure (Node.js + Express)
+
+```bash
+backend/
+│
+├── src/
+│   │
+│   ├── config/                # Configuration files (DB, env, constants)
+│   │   ├── db.js
+│   │   └── config.js
+│   │
+│   ├── controllers/           # Handles request and response logic
+│   │   ├── auth.controller.js
+│   │   ├── campaign.controller.js
+│   │   ├── keyword.controller.js
+│   │   ├── budget.controller.js
+│   │   ├── analytics.controller.js
+│   │   └── user.controller.js
+│   │
+│   ├── models/                # Database schemas / models
+│   │   ├── User.model.js
+│   │   ├── Campaign.model.js
+│   │   ├── Keyword.model.js
+│   │   ├── Budget.model.js
+│   │   └── Analytics.model.js
+│   │
+│   ├── routes/                # API routes
+│   │   ├── auth.routes.js
+│   │   ├── campaign.routes.js
+│   │   ├── keyword.routes.js
+│   │   ├── budget.routes.js
+│   │   ├── analytics.routes.js
+│   │   └── index.js
+│   │
+│   ├── services/              # Business logic layer
+│   │   ├── auth.service.js
+│   │   ├── campaign.service.js
+│   │   ├── keyword.service.js
+│   │   ├── budget.service.js
+│   │   └── analytics.service.js
+│   │
+│   ├── middlewares/           # Custom middlewares
+│   │   ├── auth.middleware.js
+│   │   ├── error.middleware.js
+│   │   └── validation.middleware.js
+│   │
+│   ├── validations/           # Request validation schemas
+│   │   ├── auth.validation.js
+│   │   ├── campaign.validation.js
+│   │   └── keyword.validation.js
+│   │
+│   ├── utils/                 # Helper utilities
+│   │   ├── logger.js
+│   │   ├── response.js
+│   │   └── helpers.js
+│   │
+│   ├── jobs/                  # Background jobs (optional)
+│   │   └── optimizer.job.js
+│   │
+│   ├── app.js                 # Express app configuration
+│   └── server.js              # Entry point
+│
+├── .env
+├── .env.example
+├── package.json
+└── README.md
