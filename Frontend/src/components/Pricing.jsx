@@ -106,3 +106,5 @@ const Pricing = () => {
 }
 
 export default Pricing
+// Done
+// file
