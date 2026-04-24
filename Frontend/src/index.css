@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@config "../tailwind.config.js";
+
+@layer base {
+  body {
+    @apply bg-background text-slate-900 font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-primary;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-2.5 bg-gradient-to-r from-accent-orange to-accent-orange-light text-white font-semibold rounded-full hover:scale-105 transition-all shadow-lg active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-2.5 bg-white border border-slate-200 text-slate-700 font-semibold rounded-full hover:bg-slate-50 transition-all flex items-center gap-2;
+  }
+
+  .card {
+    @apply bg-white p-8 rounded-4xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 lg:px-12 py-20;
+  }
+}
