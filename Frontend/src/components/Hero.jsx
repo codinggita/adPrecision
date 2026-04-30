@@ -1,12 +1,24 @@
 import React from 'react'
+import { motion } from 'framer-motion';
 import { Play } from 'lucide-react'
+import SafeSpline from './SafeSpline';
 
 const Hero = () => {
   return (
-    <section className="pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-      <div className="section-container">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="flex flex-col gap-8 animate-slide-up">
+    <section className="relative min-h-[90vh] flex items-center pt-24 overflow-hidden bg-[#F9FAFB]">
+      {/* 3D Spline Canvas Background */}
+      <div className="absolute top-0 right-[-10%] w-full h-full z-0 opacity-40 pointer-events-none hidden lg:block">
+        <SafeSpline scene="https://prod.spline.design/6Wq1Q7YVrM6Zaf9j/scene.splinecode" />
+      </div>
+
+      <div className="section-container relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+        <motion.div 
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="max-w-2xl"
+        >
+          <div className="flex flex-col gap-8">
             <div>
               <span className="inline-block px-5 py-2 rounded-full bg-[#fcead8] text-accent-orange text-xs font-bold tracking-widest mb-6">
                 EDITION 2024
@@ -33,31 +45,36 @@ const Hero = () => {
               </button>
             </div>
           </div>
+        </motion.div>
 
-          <div className="relative group perspective-1000">
-            <div className="relative z-10 rounded-4xl overflow-hidden shadow-2xl border-4 border-white/10 transform hover:-rotate-y-3 transition-all duration-700">
-              <img 
-                src="/dashboard_v2.png" 
-                alt="AdPrecision Nexus Dashboard" 
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            
-            {/* Floating Stat Badge */}
-            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-3xl shadow-xl flex items-center gap-4 z-20 animate-bounce-slow">
-              <div className="w-12 h-12 rounded-2xl bg-orange-50 flex items-center justify-center">
-                <div className="w-2 h-2 rounded-full bg-orange-500" />
-              </div>
-              <div>
-                <p className="text-xs font-bold text-slate-400">Efficiency Lift</p>
-                <p className="text-2xl font-bold text-slate-900">+42.8%</p>
-              </div>
-            </div>
-            
-            {/* Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-teal-500/10 blur-[120px] rounded-full -z-10" />
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+          className="relative group perspective-1000"
+        >
+          <div className="relative z-10 rounded-4xl overflow-hidden shadow-2xl border-4 border-white/10 transform hover:-rotate-y-3 transition-all duration-700">
+            <img 
+              src="/dashboard_v2.png" 
+              alt="AdPrecision Nexus Dashboard" 
+              className="w-full h-auto object-cover"
+            />
           </div>
-        </div>
+          
+          {/* Floating Stat Badge */}
+          <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-3xl shadow-xl flex items-center gap-4 z-20 animate-bounce-slow">
+            <div className="w-12 h-12 rounded-2xl bg-orange-50 flex items-center justify-center">
+              <div className="w-2 h-2 rounded-full bg-orange-500" />
+            </div>
+            <div>
+              <p className="text-xs font-bold text-slate-400">Efficiency Lift</p>
+              <p className="text-2xl font-bold text-slate-900">+42.8%</p>
+            </div>
+          </div>
+          
+          {/* Background Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-teal-500/10 blur-[120px] rounded-full -z-10" />
+        </motion.div>
       </div>
     </section>
   )
